@@ -8,6 +8,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "sanity": "sanity dev",
     "type-check": "tsc"
   },
   "keywords": [
@@ -16,12 +17,14 @@
     "nextjs"
   ],
   "dependencies": {
+    "@headlessui/react": "^1.7.2",
     "@next/font": "^13.1.1",
     "@sanity/demo": "^1.0.1",
     "@sanity/icons": "^2.2.2",
     "@sanity/ui": "^1.0.12",
     "@sanity/vision": "^3.1.4",
     "@tailwindcss/typography": "^0.5.8",
+    "clsx": "^1.2.1",
     "next": "^13.1.1",
     "next-sanity": "^3.1.9",
     "react": "^18.2.0",

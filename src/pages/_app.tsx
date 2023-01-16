@@ -1,40 +1,18 @@
 import '../global.css'
 
-import {IBM_Plex_Mono, Inter, PT_Serif} from '@next/font/google'
 import {AppProps} from 'next/app'
+import {groq} from 'next-sanity'
 
-const mono = IBM_Plex_Mono({
-  variable: '--font-mono',
-  subsets: ['latin'],
-  weight: ['500', '700'],
-})
-
-const sans = Inter({
-  variable: '--font-sans',
-  subsets: ['latin'],
-  weight: ['500', '700', '800'],
-})
-
-const serif = PT_Serif({
-  variable: '--font-serif',
-  style: ['normal', 'italic'],
-  subsets: ['latin'],
-  weight: ['400', '700'],
-})
+export const SITE_METADATA_QUERY = groq`
+  *[_type == 'siteMetadata']{
+    siteName,
+    logo,
+  }
+`
 
 export default function App({Component, pageProps}: AppProps) {
   return (
     <>
-      <style jsx global>
-        {`
-          :root {
-            --font-mono: ${mono.style.fontFamily};
-            --font-sans: ${sans.style.fontFamily};
-            --font-serif: ${serif.style.fontFamily};
-          }
-        `}
-      </style>
-
       <Component {...pageProps} />
     </>
   )

@@ -1,8 +1,7 @@
 import {SchemaTypeDefinition} from 'sanity'
 
-import {articleType} from './article'
-import {pageElementType, pageType} from './page'
+import {navLinkType, siteMetadataType} from './types/siteMetadata'
 
 export const schema: {types: SchemaTypeDefinition[]} = {
-  types: [articleType, pageElementType, pageType],
+  types: [siteMetadataType, navLinkType],
 }

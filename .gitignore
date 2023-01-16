@@ -5,7 +5,7 @@ dist
 *.log
 *.tsbuildinfo
 
-/.env.local
+/.env.*
 /.next
 /.sanity
 /.vscode

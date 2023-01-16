@@ -1,12 +1,12 @@
 import {GetStaticProps} from 'next'
 import {PreviewSuspense} from 'next-sanity/preview'
 
-import {LazyPreviewPage} from '../page/LazyPreviewPage'
-import {LoadingScreen} from '../page/LoadingScreen'
-import {PageScreen} from '../page/PageScreen'
-import {PAGE_DATA_QUERY, PAGE_PATHS_QUERY} from '../page/query'
-import {PageData} from '../page/types'
 import {client} from '../sanity/client'
+import {LazyPreviewPage} from '../screens/LazyPreviewPage'
+import {LoadingScreen} from '../screens/LoadingScreen'
+import {PageScreen} from '../screens/PageScreen'
+import {PAGE_DATA_QUERY, PAGE_PATHS_QUERY} from '../screens/query'
+import {PageData} from '../screens/types'
 
 interface PageProps {
   data: PageData | null
@@ -52,7 +52,8 @@ export const getStaticProps: GetStaticProps<PageProps, Query, PreviewData> = asy
 export const getStaticPaths = async () => {
   const data = await client.fetch<{slug: string}[] | null>(PAGE_PATHS_QUERY)
 
-  return {paths: data?.map((d) => `/${d.slug}`) || [], fallback: false}
+  // return { paths: ['/qss'], fallback: false}
+  return {paths: data?.map((d) => `/${d.slug}`) || ['/qss'], fallback: true}
 }
 
 export default function Page(props: PageProps) {
